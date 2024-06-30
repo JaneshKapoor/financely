@@ -13,9 +13,12 @@ const Dashboard = () => {
 
   const [transaction, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
-  const[user] = useAuthState(auth); 
-  const[isExpenseModalVisible, setIsExpenseModalVisible] = useState(false);
-  const[isIncomeModalVisible, setIsIncomeModalVisible] = useState(false);
+  const [user] = useAuthState(auth); 
+  const [isExpenseModalVisible, setIsExpenseModalVisible] = useState(false);
+  const [isIncomeModalVisible, setIsIncomeModalVisible] = useState(false);
+  const [income, setIncome] = useState(0);
+  const [expense, setExpense] = useState(0);
+  const [totalBalance, setTotalBalance] = useState(0);
 
   const showExpenseModal = () => {
     setIsExpenseModalVisible(true);
