@@ -100,7 +100,7 @@ function TransactionsTable({transactions, addTransaction, fetchTransactions}) {
                 complete: async function (results) {
                     console.log("Results >>>>", results);
                     for (const transaction of results.data) {
-                        console.log("Transactions", transaction);
+                        // console.log("Transactions", transaction);
                         const parsedAmount = parseFloat(transaction.amount);
                         if (!isNaN(parsedAmount)) {
                             const newTransaction = {

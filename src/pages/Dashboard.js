@@ -9,6 +9,8 @@ import { auth, db } from '../firebase';
 import { addDoc, collection, getDoc, getDocs, query } from 'firebase/firestore';
 import moment from "moment";
 import TransactionsTable from '../components/TransactionsTable';
+import ChartComponent from '../components/Charts';
+import NoTransactions from '../components/NoTransactions';
 
 const Dashboard = () => {
 
@@ -114,12 +116,17 @@ const Dashboard = () => {
     }
     setLoading(false);
   }
+
+  let sortedTransactions = transactions.sort((a,b) => {
+      return new Date(a.date) - new Date(b.date);
+  });
   
 
   return (
     <div>
         <Header/>
         {loading ? <p>Loading....</p> : <><Cards income={income} expense={expense} totalBalance={totalBalance} showExpenseModal = {showExpenseModal} showIncomeModal = {showIncomeModal}/>
+        {transactions && transactions.length != 0?<ChartComponent sortedTransactions={sortedTransactions}/>:<NoTransactions/>}
         <AddExpense isExpenseModalVisible={isExpenseModalVisible} handleExpenseCancel={handleExpenseCancel} onFinish={onFinish}/>
         <AddIncome isIncomeModalVisible={isIncomeModalVisible} handleIncomeCancel={handleIncomeCancel} onFinish={onFinish}/></>}
         <TransactionsTable transactions={transactions} addTransaction={addTransaction} fetchTransactions={fetchTransactions}/>
