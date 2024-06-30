@@ -32,8 +32,8 @@ function ChartComponent({sortedTransactions}) {
             newSpendings[2].amount += item.amount;
         }
     })
-    
 
+    // const new code = ?
       const config = {
         data: data,
         width: 800,
