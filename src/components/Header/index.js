@@ -22,7 +22,7 @@ function Header() {
         signOut(auth).then(() => {
           // Sign-out successful.
           toast.success("Logout Successfull!")
-          navigate("/SignupSignin")
+          navigate("/")
         }).catch((error) => {
             toast.error(error.message);
           // An error happened.
