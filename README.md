@@ -1,4 +1,4 @@
-#Visit the website live at [Link/](https://financerbob.netlify.app/)
+#Visit the website live at [Financerbob](https://financerbob.netlify.app/)
 
 # Getting Started with Create React App
 
